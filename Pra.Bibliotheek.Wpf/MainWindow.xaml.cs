@@ -56,6 +56,7 @@ namespace Pra.Bibliotheek.Wpf
             Author author = (Author)cmbFilterAuthor.SelectedItem;
             Publisher publisher = (Publisher)cmbFilterPublisher.SelectedItem;
             lstBooks.ItemsSource = bibService.GetBooks(author, publisher);
+            lstBooks.SelectedValuePath = "ID";
         }
         private void PopulateAuthors()
         {
@@ -234,7 +235,7 @@ namespace Pra.Bibliotheek.Wpf
                 }
             }
             PopulateBooks();
-            lstBooks.SelectedItem = book;
+            lstBooks.SelectedValue = book.ID;
             LstBooks_SelectionChanged(null, null);
             ActivateLeft();
         }
